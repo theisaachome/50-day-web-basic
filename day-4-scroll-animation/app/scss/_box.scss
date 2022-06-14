@@ -1,0 +1,23 @@
+.box{
+    background-color: steelblue;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    height: 200px;
+    margin: 10px;
+    border-radius: 4px;
+    box-shadow: 2px 4px 5px rgba(#000000, .5);
+    transform: translateX(400%);
+    transition: transform 0.3s ease-in;
+    &:nth-of-type(even){
+        transform: translateX(-400%);
+    }
+    &.show{
+        transform: translateX(0);
+    }
+    h2{
+        font-size: 45px;
+    }
+}

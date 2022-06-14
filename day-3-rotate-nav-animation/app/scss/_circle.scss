@@ -1,0 +1,33 @@
+.circle{
+    &__container{
+        position: fixed;
+        top: -100px;
+        left: -100px;
+    }
+    background-color: #ff7979;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    position: relative;
+    transition: $transition;
+    button{
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        height: 100px;
+        border: 0;
+        background-color: transparent;
+        font-size: 26px;
+        color: #fff;
+        &#open{
+            left: 60%;
+        }
+        &#close{
+            top: 60%;
+            transform: rotate(90deg);
+            transform-origin: top left;
+        }
+    }
+
+}
