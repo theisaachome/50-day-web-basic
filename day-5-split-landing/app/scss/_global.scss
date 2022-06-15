@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+
+:root {
+    --left-bg-color: rgba(87, 84, 236, 0.7);
+    --right-bg-color: rgba(43, 43, 43, 0.8);
+    --left-btn-hover-color: rgba(87, 84, 236, 1);
+    --right-btn-hover-color: rgba(28, 122, 28, 1);
+    --hover-width: 75%;
+    --other-width: 25%;
+    --speed: 1000ms;
+  }
+  
+*,
+*::before,
+*::after{
+    box-sizing: border-box;
+    // margin: 0;
+}
+
+body{
+    font-family: 'Roboto',sans-serif;
+    height: 100vh;
+    overflow: hidden;
+    margin: 0;
+}
+
+h1{
+    font-size: 4rem;
+    color: #fff;
+    position: absolute;
+    left: 50%;
+    top: 20%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    @media (max-width:800px) {
+        font-size: 2rem;
+        top: 30%;
+    }
+}
+.btn{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: 50%;
+    top: 40%;
+    transform: translateX(-50%);
+    text-decoration: none;
+    border: #fff solid 0.2rem;
+    width: 15rem;
+    padding: 1.5rem;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    @media (max-width:800px) {
+        padding: 1.2rem;
+        width:12rem;
+    }
+
+}
+.container{
+    position: relative;
+    background-color: #333;
+    width: 100%;
+    height: 100%;
+}
+.split{
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    &.left{
+        left: 0;
+        background: url('../../ps.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        &::before{
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: var(--left-bg-color);
+        }
+        .btn{
+            &:hover{
+                background-color: var(--left-btn-hover-color);
+            }
+        }
+    }
+
+    &.right{
+        right: 0;
+        background: url('../../xbox.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        &::before{
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: var(--right-bg-color);
+        }
+        .btn{
+            &:hover{
+                background-color: var(--right-btn-hover-color);
+            }
+        }
+    }
+
+}
+
+.hover-left{
+    .left{
+        width: var(--hover-width);
+    }
+    .right{
+        width: var(--other-width);
+    }
+}
+
+
+
+.hover-right{
+    .right{
+        width: var(--hover-width);
+    }
+    .left{
+        width: var(--other-width);
+    }
+}
+
+
+.split.left,
+.split.right,
+.split.left::before,
+.split.right::before{
+    transition: all var(--speed) ease-in-out;
+}
